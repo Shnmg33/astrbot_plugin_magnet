@@ -1,0 +1,27 @@
+# Only starts the download backend. Keep your existing AstrBot/NapCat deployment.
+services:
+  qbittorrent:
+    image: ${QBITTORRENT_IMAGE:-lscr.io/linuxserver/qbittorrent:latest}
+    container_name: astrbt-qbittorrent
+    environment:
+      PUID: ${BT_UID:-1000}
+      PGID: ${BT_GID:-1000}
+      TZ: Asia/Shanghai
+      WEBUI_PORT: 8080
+      TORRENTING_PORT: 6881
+      UMASK: '007'
+    volumes:
+      - ${BT_CONFIG_DIR:-/srv/astrbt/qb-config}:/config
+      - ${BT_DOWNLOAD_DIR:-/srv/astrbt/downloads}:/bt-downloads
+    ports:
+      - '127.0.0.1:8080:8080'
+      - '6881:6881/tcp'
+      - '6881:6881/udp'
+    networks:
+      - bt-shared
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 1.0
+networks:
+  bt-shared:
+    name: astrbt-net
