@@ -1,0 +1,202 @@
+{
+  "enabled": {
+    "description": "启用插件（配置完成后开启）",
+    "type": "bool",
+    "default": false
+  },
+  "qb_url": {
+    "description": "qBittorrent WebUI 地址",
+    "type": "string",
+    "default": "http://qbittorrent:8080"
+  },
+  "qb_username": {
+    "description": "qBittorrent 用户名",
+    "type": "string",
+    "default": "admin"
+  },
+  "qb_password": {
+    "description": "qBittorrent 密码",
+    "type": "string",
+    "default": ""
+  },
+  "local_root": {
+    "description": "AstrBot 可见的专用下载目录",
+    "type": "string",
+    "default": "/bt-downloads"
+  },
+  "qb_root": {
+    "description": "qBittorrent 可见的同一下载目录",
+    "type": "string",
+    "default": "/bt-downloads"
+  },
+  "napcat_root": {
+    "description": "NapCat 可见的同一下载目录",
+    "type": "string",
+    "default": "/bt-downloads"
+  },
+  "napcat_http_url": {
+    "description": "可选：NapCat HTTP 地址（留空走现有 OneBot 连接）",
+    "type": "string",
+    "default": ""
+  },
+  "napcat_token": {
+    "description": "NapCat HTTP Access Token",
+    "type": "string",
+    "default": ""
+  },
+  "admin_only": {
+    "description": "仅 AstrBot 管理员可使用",
+    "type": "bool",
+    "default": true
+  },
+  "allowed_users": {
+    "description": "用户 QQ 白名单（非仅管理员模式生效；空为不限）",
+    "type": "list",
+    "default": []
+  },
+  "allowed_groups": {
+    "description": "群白名单（空为不限）",
+    "type": "list",
+    "default": []
+  },
+  "auto_detect": {
+    "description": "自动解析整条消息中的裸磁力链",
+    "type": "bool",
+    "default": false
+  },
+  "trusted_trackers": {
+    "description": "管理员指定 Tracker（用户链接中的 URL 参数均忽略；空则依靠 DHT）",
+    "type": "list",
+    "default": []
+  },
+  "max_task_mib": {
+    "description": "所选文件总大小上限 MiB",
+    "type": "int",
+    "default": 1024
+  },
+  "max_file_mib": {
+    "description": "单文件回传大小上限 MiB（需实测 QQ 能力）",
+    "type": "int",
+    "default": 500
+  },
+  "max_torrent_mib": {
+    "description": "整个资源大小上限 MiB（0 关闭）",
+    "type": "int",
+    "default": 0
+  },
+  "max_files": {
+    "description": "单任务最多选择文件数",
+    "type": "int",
+    "default": 20
+  },
+  "max_metadata_files": {
+    "description": "元数据最大文件数量",
+    "type": "int",
+    "default": 10000
+  },
+  "max_concurrent": {
+    "description": "全局并发下载数",
+    "type": "int",
+    "default": 2
+  },
+  "max_per_user": {
+    "description": "每用户并发下载数",
+    "type": "int",
+    "default": 1
+  },
+  "max_pending": {
+    "description": "全局活动任务上限（含待选择和失败保留）",
+    "type": "int",
+    "default": 20
+  },
+  "max_user_pending": {
+    "description": "每用户活动任务上限",
+    "type": "int",
+    "default": 3
+  },
+  "max_parse_concurrent": {
+    "description": "并发解析数",
+    "type": "int",
+    "default": 2
+  },
+  "disk_budget_mib": {
+    "description": "临时空间预算 MiB",
+    "type": "int",
+    "default": 10240
+  },
+  "min_free_mib": {
+    "description": "磁盘最低剩余空间 MiB",
+    "type": "int",
+    "default": 5120
+  },
+  "overhead_mib": {
+    "description": "每任务额外空间预留 MiB",
+    "type": "int",
+    "default": 128
+  },
+  "download_kib": {
+    "description": "每任务下载限速 KiB/s（0 不限）",
+    "type": "int",
+    "default": 0
+  },
+  "upload_kib": {
+    "description": "每任务 BT 上传限速 KiB/s（0 不限）",
+    "type": "int",
+    "default": 256
+  },
+  "parse_timeout": {
+    "description": "解析超时秒",
+    "type": "int",
+    "default": 180
+  },
+  "selection_timeout": {
+    "description": "等待选择超时秒",
+    "type": "int",
+    "default": 600
+  },
+  "queue_timeout": {
+    "description": "排队/暂停超时秒",
+    "type": "int",
+    "default": 3600
+  },
+  "stall_timeout": {
+    "description": "下载无进展超时秒",
+    "type": "int",
+    "default": 1200
+  },
+  "download_timeout": {
+    "description": "下载总时限秒（暂停期间也计时）",
+    "type": "int",
+    "default": 7200
+  },
+  "upload_timeout": {
+    "description": "单文件上传超时秒",
+    "type": "int",
+    "default": 1200
+  },
+  "failure_retention": {
+    "description": "失败保留秒（不小于上传超时）",
+    "type": "int",
+    "default": 3600
+  },
+  "cleanup_delay": {
+    "description": "成功后清理延迟秒",
+    "type": "int",
+    "default": 60
+  },
+  "poll_seconds": {
+    "description": "后台查询间隔秒",
+    "type": "int",
+    "default": 5
+  },
+  "page_size": {
+    "description": "文件清单每页条数",
+    "type": "int",
+    "default": 10
+  },
+  "history_days": {
+    "description": "历史记录保留天数",
+    "type": "int",
+    "default": 7
+  }
+}

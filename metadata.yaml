@@ -1,0 +1,9 @@
+name: astrbot_plugin_magnet
+display_name: BT 下载助手
+desc: 通过 /bt 解析磁力、选择文件、查询进度，下载后回传 QQ 并清理本地文件。需要独立 qBittorrent 5.x 和 NapCat 共享目录。
+help: 输入 /bt help 查看命令；先在配置中填写后端与共享目录再启用。
+version: v0.1.0
+author: Shnmg
+support_platforms:
+  - aiocqhttp
+astrbot_version: '>=4.16,<5'
