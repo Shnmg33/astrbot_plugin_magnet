@@ -1,0 +1,22 @@
+# Example ONLY: merge these volumes/networks into your existing Compose services.
+# Do not run this file alone: it intentionally omits existing image/config settings.
+services:
+  astrbot:
+    volumes:
+      - /srv/astrbt/downloads:/bt-downloads
+    # If AstrBot is non-root, also give it the shared group (1000 by default).
+    group_add:
+      - '1000'
+    networks:
+      - bt-shared
+  napcat:
+    volumes:
+      - /srv/astrbt/downloads:/bt-downloads:ro
+    group_add:
+      - '1000'
+    networks:
+      - bt-shared
+networks:
+  bt-shared:
+    external: true
+    name: astrbt-net
